@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Dynamic Forms</title>
+  <%= stylesheet_link_tag 'reset', '960', 'text', 'scaffold', 'application' %>
+  <%= javascript_include_tag 'jquery', 'jquery-ui', 'application' %>
+</head>
+<body>
+
+  <div class="container_16">
+    <div class="grid_4">
+      <ul>
+        <li><%= link_to "HOME", root_path %></li>
+        <li><%= link_to "templates", templates_path %></li>
+        <li><%= link_to "assets", assets_path %></li>
+      </ul>
+    </div>
+    <div class="grid_12">
+      <div style="color: green"><%= flash[:notice] %></div>
+      <%= yield %>
+    </div>
+  </div>
+  <div class="clear"></div>
+
+</body>
+</html>

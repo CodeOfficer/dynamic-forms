@@ -3,13 +3,11 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Form data</th>
   </tr>
 
 <% @templates.each do |template| %>
   <tr>
     <td><%=h template.name %></td>
-    <td><%=h template.form_data %></td>
     <td><%= link_to 'Show', template %></td>
     <td><%= link_to 'Edit', edit_template_path(template) %></td>
     <td><%= link_to 'Destroy', template, :confirm => 'Are you sure?', :method => :delete %></td>
