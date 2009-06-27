@@ -4,7 +4,7 @@
 # http://github.com/thoughtbot/factory_girl/tree/master
 #  -----------------------------------------------------------------------------
 
-Factory.sequence :template_name do |n|
+Factory.sequence :asset_template_name do |n|
   "template name ##{n}"
 end
 
@@ -57,38 +57,38 @@ end
 
 #  -----------------------------------------------------------------------------
 
-Factory.define :template_with_no_form_data, :class => Template do |f|
-  f.name      { Factory.next(:template_name) }
+Factory.define :asset_template_with_no_form_data, :class => AssetTemplate do |f|
+  f.name      { Factory.next(:asset_template_name) }
   f.form_data [ ]
 end
 
-Factory.define :template_with_text, :class => Template do |f|
-  f.name      { Factory.next(:template_name) }
+Factory.define :asset_template_with_text, :class => AssetTemplate do |f|
+  f.name      { Factory.next(:asset_template_name) }
   f.form_data { [ Factory.next(:text) ] }
 end
 
-Factory.define :template_with_textarea, :class => Template do |f|
-  f.name      { Factory.next(:template_name) }
+Factory.define :asset_template_with_textarea, :class => AssetTemplate do |f|
+  f.name      { Factory.next(:asset_template_name) }
   f.form_data { [ Factory.next(:textarea) ] }
 end
 
-Factory.define :template_with_radio, :class => Template do |f|
-  f.name      { Factory.next(:template_name) }
+Factory.define :asset_template_with_radio, :class => AssetTemplate do |f|
+  f.name      { Factory.next(:asset_template_name) }
   f.form_data { [ Factory.next(:radio) ] }
 end
 
-Factory.define :template_with_checkbox, :class => Template do |f|
-  f.name      { Factory.next(:template_name) }
+Factory.define :asset_template_with_checkbox, :class => AssetTemplate do |f|
+  f.name      { Factory.next(:asset_template_name) }
   f.form_data { [ Factory.next(:checkbox) ] }
 end
 
-Factory.define :template_with_select, :class => Template do |f|
-  f.name      { Factory.next(:template_name) }
+Factory.define :asset_template_with_select, :class => AssetTemplate do |f|
+  f.name      { Factory.next(:asset_template_name) }
   f.form_data { [ Factory.next(:select) ] }
 end
   
-Factory.define :template_with_all_form_data, :class => Template do |f|
-  f.name { Factory.next(:template_name) }
+Factory.define :asset_template_with_all_form_data, :class => AssetTemplate do |f|
+  f.name { Factory.next(:asset_template_name) }
   f.form_data do
     [
       Factory.next(:text),

@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @asset_template.name %>
+</p>
+
+<p>
+  <b>Form data:</b>
+  <%=h @asset_template.form_data %>
+</p>
+
+
+<%= link_to 'Edit', edit_asset_template_path(@asset_template) %> |
+<%= link_to 'Back', asset_templates_path %>

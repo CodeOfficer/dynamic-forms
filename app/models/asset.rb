@@ -1,5 +1,5 @@
 class Asset < ActiveRecord::Base
-  belongs_to :template
+  belongs_to :asset_template
   
   serialize :data
   

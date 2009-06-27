@@ -1,0 +1,2 @@
+module AssetTemplatesHelper
+end

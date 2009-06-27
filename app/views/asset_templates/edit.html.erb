@@ -1,6 +1,6 @@
 <h1>Editing template</h1>
 
-<% form_for(@template) do |f| %>
+<% form_for(@asset_template) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -16,5 +16,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @template %> |
-<%= link_to 'Back', templates_path %>
+<%= link_to 'Show', @asset_template %> |
+<%= link_to 'Back', asset_templates_path %>
