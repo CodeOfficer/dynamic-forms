@@ -1,0 +1,61 @@
+
+#  -----------------------------------------------------------------------------
+
+ASSETS
+-------------
+id, name, template_id, hash (serialized), to_s
+
+sg model asset name:string template:references data:text
+-------------
+1 
+TV
+1
+{:type => 'lcd', :size => '42 inch', :serial_number => 'UY1231QWE23123'}
+TV - LCD - 42 inch
+
+#  -----------------------------------------------------------------------------
+
+TEMPLATES
+-------------
+id, name, form (serialized array of fields [field_name, field_type, field_data])
+
+sg model template name:string form_data:text
+-------------
+
+1
+TV
+[
+  'type', 'select', ['lcd', 'plasma', 'tube'],
+  'size', 'select', ['10 inch', '20 inch', '30 inch'],
+  'serial_number', 'text', '',
+]
+
+#  -----------------------------------------------------------------------------
+
+• easy to read this hash and build a form from it
+• easy to populate the form with the data from the template
+
+1. select from template
+2. template record is parsed and turned into a form
+
+
+<form action="" method="post">
+  
+  <input type="text" name="asset[name]" value="" id="asset_name"/>
+  
+  <select name="asset[type]" id="asset_type" size="1">
+    <option value="lcd">lcd</option>
+    <option value="plasma">plasma</option>
+    <option value="tube">tube</option>
+  </select>
+  
+  <select name="asset[size]" id="asset_size" size="1">
+    <option value="10 inch">10 inch</option>
+    <option value="20 inch">20 inch</option>
+    <option value="30 inch">30 inch</option>
+  </select>
+  
+  <input type="text" name="asset[serial_number]" value="" id="asset_serial_number"/>
+
+  <p><input type="submit" value="Continue &rarr;"/></p>
+</form>
