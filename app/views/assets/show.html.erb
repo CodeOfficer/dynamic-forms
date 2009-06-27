@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @asset.name %>
+</p>
+
+<p>
+  <b>Template:</b>
+  <%=h @asset.template %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%=h @asset.data %>
+</p>
+
+
+<%= link_to 'Edit', edit_asset_path(@asset) %> |
+<%= link_to 'Back', assets_path %>
