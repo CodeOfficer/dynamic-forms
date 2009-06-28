@@ -4,55 +4,83 @@
 # http://github.com/thoughtbot/factory_girl/tree/master
 #  -----------------------------------------------------------------------------
 
+# INPUTS
+# checkbox
+# hidden
+# password
+# radio
+# text
+# ...
+# textarea
+# select
+# ...
+# label
+# class
+# name
+# value
+
 Factory.sequence :asset_template_name do |n|
   "template name ##{n}"
 end
 
 Factory.sequence :text do |n|
-  [ "text", "Text Field ##{n}", "text_field_#{n}", "" ]
+  {
+    :type     => "text",
+    :name     => "text_field_#{n}", 
+    :label    => "Text Field ##{n}", 
+    :value    => ""
+  }  
 end
 
 Factory.sequence :textarea do |n|
-  [ "textarea", "Textarea Field ##{n}", "textarea_field_#{n}", "" ]
+  {
+    :type     => "textarea",
+    :name     => "textarea_field_#{n}", 
+    :label    => "Textarea Field ##{n}", 
+    :value    => ""
+  }  
 end
 
 Factory.sequence :radio do |n|
-  [ "radio",
-    "Radio Field ##{n}",
-    "radio_field_#{n}",
-    {
-      "radio_1" => "Radio #1", 
-      "radio_2" => "Radio #2", 
-      "radio_3" => "Radio #3"
-    },
-    ""
-  ]
+  {
+    :type     => "radio",
+    :name     => "radio_field_#{n}",
+    :label    => "Radio Field ##{n}",
+    :value    => "",
+    :options => [
+      "Radio #1", 
+      "Radio #2", 
+      "Radio #3"
+    ]
+  }
 end
 
 Factory.sequence :checkbox do |n|
-  [ "checkbox",
-    "Checkbox Field ##{n}",
-    "checkbox_field_#{n}",
-    {
-      "checkbox_1" => "Checkbox #1", 
-      "checkbox_2" => "Checkbox #2", 
-      "checkbox_3" => "Checkbox #3"
-    },
-    ""
-  ]
+  {
+    :type     => "checkbox",
+    :name     => "checkbox_field_#{n}",
+    :label    => "Checkbox Field ##{n}",
+    :value    => "",
+    :options => [
+      "Checkbox #1", 
+      "Checkbox #2", 
+      "Checkbox #3"
+    ]
+  }
 end
 
 Factory.sequence :select do |n|
-  [ "select",
-    "Select Field ##{n}",
-    "select_field_#{n}",
-    {
-      "select_1" => "Select #1", 
-      "select_2" => "Select #2", 
-      "select_3" => "Select #3"
-    },
-    ""
-  ]
+  {
+    :type     => "select",
+    :name     => "select_field_#{n}",
+    :label    => "Select Field ##{n}",
+    :value    => "",
+    :options => [
+      "Select #1", 
+      "Select #2", 
+      "Select #3"
+    ]
+  }
 end
 
 #  -----------------------------------------------------------------------------

@@ -1,0 +1,28 @@
+<input type="text/submit/hidden/button" name="some_name" value="" id="some_name"/>
+
+<select name="some_name" id="some_name" multiple onchange="" size="1">
+  <option value="option1">option1</option>
+  <option value="option2">option2</option>
+</select>
+
+<textarea name="Name" rows="8" cols="40"></textarea>
+
+inputs
+-----------------
+text
+hidden
+password
+checkbox
+radio
+...
+textarea
+select
+
+
+params
+-----------------
+id
+class
+disabled
+name
+value

@@ -8,13 +8,13 @@ class AssetTemplate < ActiveRecord::Base
   
   serialize :form_data, Array
   
-  def form_data
-    self.form_data_will_change!
-  end
-  
-  def form_data=(data)
-    self.form_data_will_change!
-    
-  end
+  # def form_data
+  #   self.form_data_will_change!
+  # end
+  # 
+  # def form_data=(data)
+  #   self.form_data_will_change!
+  #   
+  # end
   
 end
