@@ -11,18 +11,26 @@
 <body>
 
   <div class="container_16">
+    
     <div class="grid_4">
-      <ul>
-        <li><%= link_to "HOME", root_path %></li>
-        <li><%= link_to "asset templates", asset_templates_path %></li>
-        <li><%= link_to "assets", assets_path %></li>
-      </ul>
+      <div id="sidebar">
+        <ul>
+          <li><%= link_to "HOME", root_path %></li>
+          <li><%= link_to "asset templates", asset_templates_path %></li>
+          <li><%= link_to "assets", assets_path %></li>
+        </ul>
+      </div>
     </div>
+    
     <div class="grid_12">
-      <div style="color: green"><%= flash[:notice] %></div>
-      <%= yield %>
+      <div id="main">
+        <div style="color: green"><%= flash[:notice] %></div>
+        <%= yield %>
+      </div>
     </div>
+    
   </div>
+  
   <div class="clear"></div>
 
 </body>

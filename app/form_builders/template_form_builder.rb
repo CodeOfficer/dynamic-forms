@@ -22,8 +22,8 @@ class TemplateFormBuilder < ActionView::Helpers::FormBuilder
   def form_data_for_text(data)
     @template.content_tag :p do
       result = ""
-      result << "#{form_data_label(data)}<br/>" unless data[:label].blank?
-      result << "<input type='text' name='#{form_data_name(data)}' value='#{form_data_value(data)}' id='#{form_data_id(data)}'/>"
+      result << "#{form_data_label(data)}<br/>\n" unless data[:label].blank?
+      result << "<input type='text' name='#{form_data_name(data[:name])}' value='#{form_data_value(data)}' id='#{form_data_id(data[:name])}'/>\n"
       result
     end
   end
@@ -31,8 +31,8 @@ class TemplateFormBuilder < ActionView::Helpers::FormBuilder
   def form_data_for_textarea(data)
     @template.content_tag :p do
       result = ""
-      result << "#{form_data_label(data)}<br/>" unless data[:label].blank?
-      result << "<textarea name='#{form_data_name(data)}' id='#{form_data_id(data)}' rows='8' cols='40'>#{form_data_value(data)}</textarea>"
+      result << "#{form_data_label(data)}<br/>\n" unless data[:label].blank?
+      result << "<textarea name='#{form_data_name(data[:name])}' id='#{form_data_id(data[:name])}' rows='8' cols='40'>#{form_data_value(data)}</textarea>\n"
       result
     end
   end
@@ -40,11 +40,11 @@ class TemplateFormBuilder < ActionView::Helpers::FormBuilder
   def form_data_for_select(data)
     @template.content_tag :p do
       result = ""
-      result << "#{form_data_label(data)}<br/>" unless data[:label].blank?
-      result << "<select name='#{form_data_name(data)}' id='#{form_data_id(data)}' size='1'>"
-      result << "<option value=''></option>"
+      result << "#{form_data_label(data)}<br/>\n" unless data[:label].blank?
+      result << "<select name='#{form_data_name(data[:name])}' id='#{form_data_id(data[:name])}' size='1'>\n"
+      result << "<option value=''></option>\n"
       result << form_data_select_options(data)
-      result << "</select>"
+      result << "</select>\n"
       result
     end
   end
@@ -52,7 +52,7 @@ class TemplateFormBuilder < ActionView::Helpers::FormBuilder
   def form_data_for_checkbox(data)
     @template.content_tag :p do
       result = ""
-      result << "#{form_data_label(data)}<br/>" unless data[:label].blank?
+      result << "#{form_data_label(data)}<br/>\n" unless data[:label].blank?
       result << form_data_checkboxes(data)
       result
     end
@@ -61,7 +61,7 @@ class TemplateFormBuilder < ActionView::Helpers::FormBuilder
   def form_data_for_radio(data)
     @template.content_tag :p do
       result = ""
-      result << "#{form_data_label(data)}<br/>" unless data[:label].blank?
+      result << "#{form_data_label(data)}<br/>\n" unless data[:label].blank?
       result << form_data_radios(data)
       result
     end
@@ -70,10 +70,10 @@ class TemplateFormBuilder < ActionView::Helpers::FormBuilder
   def form_data_radios(data)
     result = ''
     data[:options].each_with_index do |o, index|
-      cname = data[:options][index]
-      cvalue = data[:options][index]
+      cname = form_data_name(data[:name].to_field_id)
+      cvalue = data[:options][index].to_field_id
       clabel = data[:options][index]
-      result <<"<input type='radio' name='#{cname}' value='#{cvalue}'> #{clabel}<br/>"
+      result << "<input type='radio' name='#{cname}' value='#{cvalue}'> #{clabel}<br/>\n"
     end
     result
   end
@@ -81,10 +81,11 @@ class TemplateFormBuilder < ActionView::Helpers::FormBuilder
   def form_data_checkboxes(data)
     result = ''
     data[:options].each_with_index do |o, index|
-      cname = data[:options][index]
-      cvalue = data[:options][index]
-      clabel = data[:options][index]
-      result <<"<input type='checkbox' name='#{cname}' value='#{cvalue}'> <strong>#{clabel}</strong><br/>"
+      cname = form_data_name(data[:name].to_field_id)
+      cvalue = data[:options][index].to_field_id
+      clabel = data[:options][index]      
+      result << "<input type='hidden' value='0' name='#{cname}'/>\n"
+      result << "<input type='checkbox' name='#{cname}' value='#{cvalue}'> #{clabel}<br/>\n"
     end
     result
   end
@@ -92,7 +93,7 @@ class TemplateFormBuilder < ActionView::Helpers::FormBuilder
   def form_data_select_options(data)
     result = ''
     data[:options].each_with_index do |o, index|
-      result << "<option value='#{data[:options][index]}'>#{data[:options][index]}</option>"
+      result << "<option value='#{data[:options][index]}'>#{data[:options][index]}</option>\n"
     end
     result
   end
@@ -101,12 +102,12 @@ class TemplateFormBuilder < ActionView::Helpers::FormBuilder
     label("form_data_#{data[:name].underscore}", data[:label])
   end
 
-  def form_data_name(data)
-    "#{object_name}[form_data][#{data[:name].underscore}]"
+  def form_data_name(name)
+    "#{object_name}[form_data][#{name.underscore}]"
   end
 
-  def form_data_id(data)
-    "#{object_name}_form_data_#{data[:name].underscore}"
+  def form_data_id(name)
+    "#{object_name}_form_data_#{name.underscore}"
   end
 
   def form_data_value(data)

@@ -11,3 +11,12 @@ table {
 form pre.form_data {
   background-color: #FF6666;
 }
+
+#sidebar {
+ padding: 1em;
+}
+
+#main {
+ background-color: #FFF;
+ padding: 1em;
+}
