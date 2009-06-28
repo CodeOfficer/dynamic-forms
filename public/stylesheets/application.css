@@ -3,3 +3,11 @@ body {
   background-color: #ddd; 
   margin-top: 1em;
 }
+
+table {
+  width: 720px;
+}
+
+form pre.form_data {
+  background-color: #FF6666;
+}

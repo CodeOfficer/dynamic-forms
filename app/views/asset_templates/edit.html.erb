@@ -1,16 +1,21 @@
 <h1>Editing template</h1>
 
-<% form_for(@asset_template) do |f| %>
+<% template_form_for(@asset_template) do |f| %>
   <%= f.error_messages %>
 
   <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
+  
   <p>
-    <%= f.label :form_data %><br />
-    <%= f.text_area :form_data %>
+    <%= f.render_form_data %>
   </p>
+  
+  <pre class="form_data">
+    <%= f.debug_form_data %>
+  </pre>
+  
   <p>
     <%= f.submit 'Update' %>
   </p>
