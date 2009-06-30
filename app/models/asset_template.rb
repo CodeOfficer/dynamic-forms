@@ -21,12 +21,12 @@ class AssetTemplate < ActiveRecord::Base
   #   logger.debug { "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" }
   # end
   
-  def form_data=(data)
-    self.form_data_will_change!
-    logger.debug { "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" }
-    logger.debug { "#{data.class.to_s}" }
-    logger.debug { "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" }
-  end
+  # def form_data=(data)
+  #   self.form_data_will_change!
+  #   logger.debug { "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" }
+  #   logger.debug { "#{data.class.to_s}" }
+  #   logger.debug { "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" }
+  # end
   
 end
 
